@@ -1,7 +1,40 @@
-import avatar from "../assets/images/avatar.png"
-
+import { useState } from "react"
+import { useChat } from "../context/ChatContext"
+import { avatar } from "../assets/avatar.png"
 
 export default function Chat() {
+  const [msg, setMsg] = useState("")
+
+  const { users, selectedUser } = useChat()
+
+  const user = users.find(u => u.id === selectedUser)
+
+  console.log(user)
+
+  if (!user) {
+    return (
+      <p>No hay usuario seleccionado...</p>
+    )
+  }
+
+  const handleChange = (event) => {
+    setMsg(event.target.value)
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+
+    const newMessage = {
+      id: crypto.randomUUID(),
+      text: msg,
+      time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+    }
+
+    setMessages([...messages, newMessage])
+    setMsg("")
+  }
+
+
   return (
     <div className="chat">
       <header className="chat-header">
@@ -12,9 +45,9 @@ export default function Chat() {
               alt="Aiden Chavez"
               className="chat-avatar"
             />
-            <strong>Aiden Chavez</strong>
+            <strong>{user.name}</strong>
+            {user.lastSeen !== "" && <span className="last-seen">Last seen: {user.lastSeen}</span>}
           </div>
-          <span className="last-seen"> Last seen: 2 hours ago</span>
         </div>
 
         <div className="chat-actions">
@@ -27,15 +60,24 @@ export default function Chat() {
 
 
       <section className="chat-messages">
-        <div className="message">
-          <p></p>
-          <span className="time"></span>
-        </div>
+        {
+          user.messages.map((message) => <div className="message">
+            <p>{message.text}</p>
+            <span className="time">{message.time}</span>
+          </div>)
+        }
       </section>
 
       <footer className="chat-footer">
-        <input type="text" placeholder="Enter text here..." />
-        <button>➤</button>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Enter text here..."
+            onChange={handleChange}
+            value={msg}
+          />
+          <button>➤</button>
+        </form>
       </footer>
     </div>
   )
