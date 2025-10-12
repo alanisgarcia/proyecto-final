@@ -1,47 +1,23 @@
+import { useState } from "react"
 import avatar from "../assets/images/avatar.png"
+import { useChat } from "../context/ChatContext"
 
 export default function Sidebar() {
+  const { users, setSelectedUser } = useChat()
+  const [usersToRender, setUsersToRender] = useState(users)
 
-  const users = [
-    {
-      id: 1,
-      name: "Juan Perez",
-      status: "offline",
-      lastSeen: "7 mins ago",
-    },
-    {
-      id: 1,
-      name: "Aiden Chavez",
-      status: "offline",
-      lastSeen: "14 mins ago",
-    },
-    {
-      id: 1,
-      name: "Mike Thomas",
-      status: "Online",
-      lastSeen: "",
-    },
-    {
-      id: 1,
-      name: "Christian Kelly",
-      status: "Online",
-      lastSeen: "",
-    },
-    {
-      id: 1,
-      name: "Monica Ward",
-      status: "offline",
-      lastSeen: "1 hour ago",
-    },
-  ]
-
+  const handleChange = (event) => {
+    const result = users.filter((user) => user.name.toLowerCase().includes(event.target.value.toLowerCase()))
+    setUsersToRender(result)
+  }
 
   return (
     <div className="sidebar">
-      <input type="text" placeholder="Search..." className="search" />
+      <input type="text" placeholder="Search..." className="search"
+        onChange={handleChange} />
       <ul className="user-list">
         {
-          users.map(user => <li className="user">
+          usersToRender.map(user => <li onClick={() => setSelectedUser(user.id)} className="user">
             <img className="avatar" src={avatar} alt="" />
             <div></div>
             <div className="user-info">

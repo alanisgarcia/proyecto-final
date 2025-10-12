@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { useChat } from "../context/ChatContext"
-import { avatar } from "../assets/avatar.png"
 
 export default function Chat() {
   const [msg, setMsg] = useState("")
@@ -41,7 +40,7 @@ export default function Chat() {
         <div>
           <div className="chat-user">
             <img
-              src={avatar}
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4YreOWfDX3kK-QLAbAL4ufCPc84ol2MA8Xg&s"
               alt="Aiden Chavez"
               className="chat-avatar"
             />
