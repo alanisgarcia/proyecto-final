@@ -73,6 +73,13 @@
   flex-direction: column;
 }
 
+.user-not-found {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .chat-header {
   background-color: yellowgreen;
   padding: 12px 15px;

@@ -12,7 +12,9 @@ export default function Chat() {
 
   if (!user) {
     return (
-      <p>No hay usuario seleccionado...</p>
+      <div className="user-not-found">
+        <p>No hay usuario seleccionado...</p>
+      </div>
     )
   }
 
