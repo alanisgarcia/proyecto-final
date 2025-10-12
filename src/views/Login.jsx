@@ -11,13 +11,6 @@ const Login = () => {
 
   const navigate = useNavigate()
 
-  // hook -> anzuelo -> una funcionalidad que provee react
-  // use -> "usando ..."
-  // useState -> usando un estado
-  // un estado es una variable que cuando cambiar se rerenderiza el componente
-
-  // let showPassword = false
-
   const PASS = "pepe123"
 
   const validatePassword = () => {
