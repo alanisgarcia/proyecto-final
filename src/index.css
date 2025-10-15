@@ -124,6 +124,21 @@
   background-color: #fafafa;
 }
 
+.message {
+  background-color: rgb(206, 246, 255);
+  padding: 5px 10px;
+  border-radius: 8px;
+  align-self: flex-end;
+  max-width: 50%;
+}
+
+.message .time {
+  font-size: 9px;
+  display: block;
+  text-align: end;
+  color: #979797;
+}
+
 .chat-footer {
   display: flex;
   padding: 10px;
