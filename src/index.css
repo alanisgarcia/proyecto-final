@@ -284,3 +284,17 @@ form .text-info {
   color: white;
   margin-top: 10px;
 }
+
+@media (max-width: 480px) {
+  .sidebar {
+    display: none;
+  }
+
+  header {
+    flex-direction: column;
+  }
+
+  .popup {
+    width: 80%;
+  }
+}
