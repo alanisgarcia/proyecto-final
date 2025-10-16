@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useState, useEffect } from "react"
 
 const ChatContext = createContext()
 
@@ -18,7 +18,7 @@ const ChatProvider = ({ children }) => {
         {
           id: 1,
           name: "Juan perez",
-          status: "online",
+          status: "offline",
           lastSeen: "",
           messages: [
             {
@@ -68,11 +68,25 @@ const ChatProvider = ({ children }) => {
               time: "20:00"
             }
           ]
-        }
+        },
+        {
+          id: 4,
+          name: "Mariana Zalazar",
+          status: "Online",
+          lastSeen: "",
+          messages: [
+            {
+              id: 1,
+              text: "Yendo, esperame con el mate🧉",
+              time: "16:30"
+            }
+          ]
+        },
       ]
       setUsers(initialUsers)
       localStorage.setItem("users", JSON.stringify(initialUsers))
     }
+
   }, [])
 
   useEffect(() => {

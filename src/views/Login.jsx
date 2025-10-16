@@ -15,7 +15,7 @@ const Login = () => {
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn")
     if (isLoggedIn === "true") {
-      navigate("/chat")
+      navigate("/chat", { replace: true })
     }
   }, [navigate])
 

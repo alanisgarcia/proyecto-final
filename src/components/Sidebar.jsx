@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import avatar from "../assets/images/avatar.png"
 import { useChat } from "../context/ChatContext"
 
