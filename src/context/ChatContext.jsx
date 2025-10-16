@@ -30,6 +30,24 @@ const ChatProvider = ({ children }) => {
         },
         {
           id: 2,
+          name: "Agustin Martinez",
+          status: "Online",
+          lastSeen: "3 hours ago",
+          messages: [
+            {
+              id: 1,
+              text: "¿Como te fue en el trabajo?",
+              time: "22:01"
+            },
+            {
+              id: 2,
+              text: "Ya está la comida lista🍝",
+              time: "22:39"
+            },
+          ]
+        },
+        {
+          id: 3,
           name: "Marita Rodriguez",
           status: "offline",
           lastSeen: "3 hours ago",
