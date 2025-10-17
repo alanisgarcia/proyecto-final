@@ -1,27 +1,34 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useChat } from "../context/ChatContext"
 import { Link, useNavigate } from "react-router-dom"
 
 export default function Chat() {
+  const { users, selectedUser, setUsers } = useChat()
+
+  const user = users.find(u => u.id === selectedUser)
+
   const [msg, setMsg] = useState("")
   const [showPopup, setShowPopup] = useState(false)
   const [theme, setTheme] = useState("claro");
   const [tempTheme, setTempTheme] = useState(theme);
+  const [tempName, setTempName] = useState("")
+
+  useEffect(() => {
+    if (user) setTempName(user.name)
+  }, [user])
 
   const handleTempThemeChange = (e) => {
     setTempTheme(e.target.value);
   }
 
-
-  const handleSaveTheme = () => {
-    setTheme(tempTheme);
-    localStorage.setItem("chatTheme", tempTheme);
-    handleClosePopup();
+  const handleSaveSettings = () => {
+    const updatedUsers = users.map(u =>
+      u.id === user.id ? { ...u, name: tempName } : u
+    )
+    setUsers(updatedUsers)
+    localStorage.setItem("users", JSON.stringify(updatedUsers))
+    handleClosePopup()
   }
-
-  const { users, selectedUser } = useChat()
-
-  const user = users.find(u => u.id === selectedUser)
 
   const navigate = useNavigate()
 
@@ -87,11 +94,12 @@ export default function Chat() {
             <input
               type="text"
               placeholder="Nuevo nombre"
-              onChange={(e) => console.log(e.target.value)}
+              value={tempName}
+              onChange={(e) => setTempName(e.target.value)}
             />
 
             <br></br>
-            <button onClick={handleSaveTheme}>Guardar cambios</button>
+            <button onClick={handleSaveSettings}>Guardar cambios</button>
             <button onClick={handleClosePopup} style={{ marginLeft: "10px" }}>Cancelar</button>
           </div>
         </section>

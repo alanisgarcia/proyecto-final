@@ -42,7 +42,7 @@ export default function Sidebar({ theme }) {
               <strong>
                 <span
                   style={{
-                    color: user.status === "online" ? "green" : "red",
+                    color: user.status === "Online" ? "green" : "red",
                     marginRight: "3px",
                   }}
                 >
@@ -51,7 +51,7 @@ export default function Sidebar({ theme }) {
                 {user.name}
               </strong>
               <small>
-                {user.status === "offline" ? user.lastSeen : "online"}
+                {user.status === "offline" ? user.lastSeen : "Online"}
               </small>
             </div>
           </li>

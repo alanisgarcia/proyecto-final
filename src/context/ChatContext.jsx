@@ -19,7 +19,7 @@ const ChatProvider = ({ children }) => {
           id: 1,
           name: "Juan perez",
           status: "offline",
-          lastSeen: "",
+          lastSeen: "23 minutes ago",
           messages: [
             {
               id: 1,
@@ -32,7 +32,7 @@ const ChatProvider = ({ children }) => {
           id: 2,
           name: "Agustin Martinez",
           status: "Online",
-          lastSeen: "3 hours ago",
+          lastSeen: "",
           messages: [
             {
               id: 1,

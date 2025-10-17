@@ -158,26 +158,6 @@
   color: #979797;
 }
 
-.chat.claro {
-  background-color: #f0f0f0;
-  color: #000;
-}
-
-.chat.claro .chat-header,
-.chat.claro .chat-messages,
-.chat.claro .chat-footer,
-.chat.claro .chat-actions,
-.chat.claro .message,
-.chat.claro .sidebar {
-  background-color: #f0f0f0;
-  color: #000;
-}
-
-.chat.oscuro {
-  background-color: #1c1c1c;
-  color: #fff;
-}
-
 .chat.oscuro .chat-header,
 .chat.oscuro .chat-footer,
 .chat.oscuro .chat-actions,
