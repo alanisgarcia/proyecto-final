@@ -6,9 +6,17 @@ export default function Chat() {
   const [msg, setMsg] = useState("")
   const [showPopup, setShowPopup] = useState(false)
   const [theme, setTheme] = useState("claro");
+  const [tempTheme, setTempTheme] = useState(theme);
 
-  const handleThemeChange = (e) => {
-    setTheme(e.target.value)
+  const handleTempThemeChange = (e) => {
+    setTempTheme(e.target.value);
+  }
+
+
+  const handleSaveTheme = () => {
+    setTheme(tempTheme);
+    localStorage.setItem("chatTheme", tempTheme);
+    handleClosePopup();
   }
 
   const { users, selectedUser } = useChat()
@@ -45,7 +53,7 @@ export default function Chat() {
         : u
     )
 
-    setUsers(updatedUsers) // esto dispara el useEffect del contexto que guarda en localStorage
+    setUsers(updatedUsers)
 
     setMsg("")
   }
@@ -70,7 +78,7 @@ export default function Chat() {
           <div className="popup" onClick={(e) => e.stopPropagation()} >
             <h2>Configuración de Chat</h2>
             <h3>Cambiar tema:</h3>
-            <select value={theme} onChange={handleThemeChange}>
+            <select value={tempTheme} onChange={handleTempThemeChange}>
               <option value="claro">Claro</option>
               <option value="oscuro">Oscuro</option>
             </select>
@@ -83,11 +91,13 @@ export default function Chat() {
             />
 
             <br></br>
-            <button onClick={handleClosePopup}>Cerrar</button>
+            <button onClick={handleSaveTheme}>Guardar cambios</button>
+            <button onClick={handleClosePopup} style={{ marginLeft: "10px" }}>Cancelar</button>
           </div>
         </section>
       }
-      <div className="chat">
+      <div className={`chat ${theme}`}
+      >
         <header className="chat-header">
           <div>
             <div className="chat-user">

@@ -1,12 +1,8 @@
-# React + Vite
+En RouterApp.jsx tenemos al ProtectedRouter que hace que el chat quede protegido y por otro lado, / Login redirige al chat si ya está logueado.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Se agregó un replace:true en login.jsx para que no quede la página de login en el historial, asi no se vuelve a dicha página.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+En chat.jsx se agregó:
+- el nuevo estado para cambiar de tema. -onClick={handleClosePopup} para cerrar el contenedor si se clickea afuera. 
+-e.stopPropagation() en el popup para que el click dentro no cierre. 
+-theme con useState para que el usuario pueda elegir y después aplicarlo a la clase del chat.

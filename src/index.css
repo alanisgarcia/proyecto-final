@@ -18,6 +18,16 @@
   flex-direction: column;
 }
 
+.sidebar.claro {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+.sidebar.oscuro {
+  background-color: #1c1c1c;
+  color: #fff;
+}
+
 .search {
   padding: 10px;
   border: none;
@@ -148,6 +158,48 @@
   color: #979797;
 }
 
+.chat.claro {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+.chat.claro .chat-header,
+.chat.claro .chat-messages,
+.chat.claro .chat-footer,
+.chat.claro .chat-actions,
+.chat.claro .message,
+.chat.claro .sidebar {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+.chat.oscuro {
+  background-color: #1c1c1c;
+  color: #fff;
+}
+
+.chat.oscuro .chat-header,
+.chat.oscuro .chat-footer,
+.chat.oscuro .chat-actions,
+.chat.oscuro .message,
+.chat.oscuro .chat-messages,
+.chat.oscuro .sidebar {
+  background-color: #1c1c1c;
+  color: #fff;
+}
+
+.chat.oscuro .message {
+  background-color: #333;
+}
+
+.chat.oscuro button {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+
+
 .chat-footer {
   display: flex;
   padding: 10px;
@@ -165,6 +217,8 @@
   flex: 1;
   padding: 10px;
   border: 1px solid #ddd;
+  background-color: inherit;
+  color: inherit;
 }
 
 .chat-footer button {

@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react"
-import avatar from "../assets/images/avatar.png"
 import { useChat } from "../context/ChatContext"
 
-export default function Sidebar() {
+export default function Sidebar({ theme }) {
   const { users, setSelectedUser } = useChat()
   const [usersToRender, setUsersToRender] = useState(users)
 
@@ -19,7 +18,7 @@ export default function Sidebar() {
   }
 
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${theme}`}>
       <input type="text" placeholder="Search..." className="search"
         onChange={handleChange} />
 
